@@ -151,25 +151,25 @@ shopnow-backend/
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│                    CLIENT (React Frontend)               │
-│                    localhost:5173                        │
+│                    CLIENT (React Frontend)              │
+│                    localhost:5173                       │
 └──────────────────────────┬──────────────────────────────┘
                            │ HTTP Requests
                            ▼
 ┌─────────────────────────────────────────────────────────┐
-│                  SPRING BOOT BACKEND                     │
-│                    localhost:8080                        │
+│                  SPRING BOOT BACKEND                    │
+│                    localhost:8080                       │
 │                                                         │
-│  ┌─────────────┐    ┌──────────────┐    ┌───────────┐  │
-│  │  Controller │───▶│   Service    │───▶│Repository │  │
-│  │   Layer     │    │    Layer     │    │   Layer   │  │
-│  └─────────────┘    └──────────────┘    └─────┬─────┘  │
+│  ┌─────────────┐    ┌──────────────┐    ┌───────────┐   │
+│  │  Controller │───▶│   Service    │───▶│Repository│   │
+│  │   Layer     │    │    Layer     │    │   Layer   │   │
+│  └─────────────┘    └──────────────┘    └─────┬─────┘   │
 │         │                                      │        │
-│  ┌─────────────┐                        ┌─────▼─────┐  │
-│  │  Security   │                        │PostgreSQL │  │
-│  │JWT + Spring │                        │ Database  │  │
-│  │  Security   │                        │port: 5432 │  │
-│  └─────────────┘                        └───────────┘  │
+│  ┌─────────────┐                        ┌─────▼─────┐   │
+│  │  Security   │                        │PostgreSQL │   │
+│  │JWT + Spring │                        │ Database  │   │
+│  │  Security   │                        │port: 5432 │   │
+│  └─────────────┘                        └───────────┘   │
 └─────────────────────────────────────────────────────────┘
                            │
                            ▼
@@ -303,20 +303,20 @@ Swagger UI at: **http://localhost:8080/swagger-ui/index.html**
 
 ```
 User                    Backend                    Database
- │                         │                          │
- │──── POST /signin ───────▶│                          │
- │                         │──── Find User ───────────▶│
- │                         │◀─── User Found ───────────│
- │                         │                          │
- │                         │── Generate JWT Token ──▶  │
- │                         │                          │
- │◀─── JWT in Cookie ──────│                          │
- │                         │                          │
- │──── API Request ─────────▶│                          │
- │      + JWT Cookie        │                          │
- │                         │── Validate Token ──────▶  │
- │                         │── Check Role ──────────▶  │
- │◀─── Response ───────────│                          │
+ │                         │                              │
+ │──── POST /signin ───────▶│                            │
+ │                         │──── Find User ───────────▶  │
+ │                         │◀─── User Found ───────────  │
+ │                         │                              │
+ │                         │── Generate JWT Token ──▶    │
+ │                         │                              │
+ │◀─── JWT in Cookie ──────│                             │
+ │                         │                              │
+ │──── API Request ─────────▶│                           │
+ │      + JWT Cookie       │                              │
+ │                         │── Validate Token ──────▶    │
+ │                         │── Check Role ──────────▶    │
+ │◀─── Response ───────────│                             │
 ```
 
 ### Roles & Permissions:
